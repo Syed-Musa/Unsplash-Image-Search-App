@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-// Use Vite-provided server URL in production, otherwise default to the Render URL
+
 const SERVER_URL ='https://unsplash-image-search-app.onrender.com';
 
 const api = axios.create({ baseURL: SERVER_URL });
 
-// attach token if present
+
 export function setAuthToken(token) {
   if (token) api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   else delete api.defaults.headers.common['Authorization'];
