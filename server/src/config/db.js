@@ -1,4 +1,4 @@
-// server/config/connectDB.js
+
 require('dotenv').config();
 const mongoose = require('mongoose');
 
