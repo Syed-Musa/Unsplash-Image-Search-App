@@ -6,7 +6,7 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
-const CLIENT_REDIRECT = process.env.CLIENT_URL || process.env.VITE_CLIENT_URL || 'https://unsplash-image-search-app-ui.onrender.com';
+const CLIENT_REDIRECT = 'https://unsplash-image-search-app-ui.onrender.com';
 
 // Helper: find or create a user from provider profile
 async function findOrCreateUser({ provider, profile, email, name }) {
