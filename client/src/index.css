@@ -565,3 +565,61 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Extra responsive tweaks for mobile to avoid overlapping fixed elements and large paddings */
+@media (max-width: 768px) {
+  /* Make auth card narrower and reduce padding */
+  .auth-panel {
+    width: calc(100% - 32px) !important;
+    max-width: 720px;
+    padding: 20px !important;
+    box-shadow: 0 10px 24px rgba(50,50,93,0.06);
+  }
+
+  .auth-screen .title { font-size: 32px; }
+  .title-large { font-size: 32px; margin-top: 1rem; }
+
+  /* Convert top banner to flow layout so it doesn't cover the header */
+  .top-searches-banner {
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin: 8px 12px;
+    padding: 8px 10px;
+    border-radius: 8px;
+  }
+  .top-searches-banner .banner-inner { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* Stack search form vertically and make input full width */
+  .search-form { flex-direction: column; gap: 10px; width: 100%; }
+  .search-input.large { width: 100% !important; max-width: 100%; height: 48px; }
+
+  /* Make header actions flow and not fixed on the far-right */
+  .top-actions { position: static; margin: 8px 12px; justify-content: center; }
+
+  /* History dropdown should fit inside screen */
+  .history-dropdown { position: fixed; right: 10px; left: 10px; top: auto; bottom: 12px; width: auto; max-width: calc(100% - 20px); }
+
+  /* Reduce image grid columns */
+  .images { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+}
+
+@media (max-width: 480px) {
+  /* Further reductions for small phones */
+  .auth-panel { width: calc(100% - 24px) !important; padding: 14px !important; }
+  .auth-screen .title { font-size: 26px; }
+  .title-large { font-size: 28px; }
+
+  /* Ensure top actions are accessible and don't overlap content */
+  .top-actions { position: fixed; right: 8px; top: 8px; z-index: 1600; }
+  .app-header .top-right { right: 8px; }
+
+  /* Make inputs full width inside auth form */
+  .auth-form input.form-control { width: 100% !important; }
+
+  /* OAuth buttons: make them consistent size and inline */
+  .oauth-btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 14px; min-width: 44px; }
+
+  .images { grid-template-columns: 1fr; }
+}
